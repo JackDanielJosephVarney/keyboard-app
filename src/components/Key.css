@@ -1,0 +1,24 @@
+.key {
+  border: none;
+  outline: none;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: lightskyblue;
+}
+
+.key-inactive {
+  box-shadow: 0px 0px 8px #ffffff;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.key:hover {
+  box-shadow: 0px 0px 8px #c5c5c5;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.key-active {
+  box-shadow: 0px 0px 8px #c5c5c5;
+  transition: box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
