@@ -1,33 +1,5 @@
-.key-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.key-wrapper {
-  height: 200px;
-  margin: 6px 0 6px 6px;
-}
-
-.key-wrapper:nth-last-of-type(1) {
-  margin: 6px;
-}
-
-.not-so-sharp-key-wrapper {
-  flex: 6;
-}
-
-.not-so-sharp-key-wrapper > button {
-  background-color: #03a9f4;
-  color: black;
-}
-
-.sharp-key-wrapper {
-  flex: 4;
-}
-
-.sharp-key-wrapper > button {
-  background-color: #01579b;
-  color: white;
+.keyboard {
+  background-color: #ffc107;
+  border: 2px solid #ff6f00;
+  padding: 20px;
 }

@@ -1,21 +1,5 @@
 const twelthRoot = Math.pow(2, 1 / 12);
 
-const getOscNode = (ctx: AudioContext): OscillatorNode => {
-  const oscNode = ctx.createOscillator();
-
-  oscNode.type = 'square';
-
-  return oscNode;
-};
-
-const getGainNode = (ctx: AudioContext): GainNode => {
-  const gainNode = ctx.createGain();
-
-  gainNode.connect(ctx.destination);
-
-  return gainNode;
-};
-
 const getQuarter = bpm => 60 / bpm;
 const addSemitone = freq => freq * twelthRoot;
 const minusSemitone = freq => freq / twelthRoot;
@@ -24,11 +8,11 @@ export const MusicUtils = Object.freeze({
   getAudioContext: () => <AudioContext>new ((<any>window).AudioContext || (<any>window).webkitAudioContext)(),
 
   getNodes: (ctx: AudioContext) => {
-    const oscNode = getOscNode(ctx);
-    const gainNode = getGainNode(ctx);
+    const oscNode = ctx.createOscillator();
+    const gainNode = ctx.createGain();
 
-    gainNode.connect(ctx.destination);
     oscNode.connect(gainNode);
+    gainNode.connect(ctx.destination);
 
     return { gainNode, oscNode };
   },
