@@ -38,11 +38,11 @@ export default class Keyboard extends React.Component<Props, State> {
   audioContext: AudioContext = MusicUtils.getAudioContext();
 
   render() {
-    return <div className="keys-container">{this.getKeys()}</div>;
+    return <div className="keys-container">{this.generateKeyboard()}</div>;
   }
 
-  getKeys(): JSX.Element[] {
-    return keyCodes.map((keyCode, i) => (
+  generateKeyboard(): JSX.Element {
+    const keys = keyCodes.map((keyCode, i) => (
       <KeyboardContext.Consumer key={i}>
         {context => (
           <div className={this.getNote(i).length > 1 ? 'key-wrapper sharp-key-wrapper' : 'key-wrapper not-so-sharp-key-wrapper'}>
@@ -53,6 +53,45 @@ export default class Keyboard extends React.Component<Props, State> {
         )}
       </KeyboardContext.Consumer>
     ));
+
+    const y = 3;
+    const x = 3 * 1.5;
+    const se = y * 2;
+    const magic = se * 2;
+
+    return (
+      <>
+        <div className="not-so-sharp-key-container">
+          {keys[0]}
+          {keys[2]}
+          {keys[4]}
+          {keys[5]}
+          {keys[7]}
+          {keys[9]}
+          {keys[11]}
+          {keys[12]}
+          {keys[14]}
+          {keys[16]}
+        </div>
+        <div className="sharp-key-container">
+          <div className="seperator" style={{ flex: se }} />
+          {keys[1]}
+          <div className="seperator" style={{ flex: x }} />
+          {keys[3]}
+          <div className="seperator" style={{ flex: magic }} />
+          {keys[6]}
+          <div className="seperator" style={{ flex: x }} />
+          {keys[8]}
+          <div className="seperator" style={{ flex: x }} />
+          {keys[10]}
+          <div className="seperator" style={{ flex: magic }} />
+          {keys[13]}
+          <div className="seperator" style={{ flex: x }} />
+          {keys[15]}
+          <div className="seperator" style={{ flex: se }} />
+        </div>
+      </>
+    );
   }
 
   // since there are more keys than notes you need to loop back to the start
