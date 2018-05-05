@@ -30,8 +30,8 @@ export default class Ripple extends React.Component<{}, State> {
   getPos(): React.CSSProperties {
     const coloursKeys = Object.keys(Colours);
     return {
-      top: Utils.getRandomInt(-25, 90) + '%',
-      left: Utils.getRandomInt(-25, 90) + '%',
+      top: Utils.getRandomInt(-10, 90) + '%',
+      left: Utils.getRandomInt(-10, 40) + '%',
       backgroundColor: Colours[coloursKeys[Utils.getRandomInt(0, coloursKeys.length)]]
     };
   }

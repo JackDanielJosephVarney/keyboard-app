@@ -12,7 +12,9 @@ export default class Keyboard extends React.Component<Props, State> {
   render() {
     return (
       <div className="keyboard">
-        <Keys />
+        <div className="keys-wrapper">
+          <Keys />
+        </div>
       </div>
     );
   }

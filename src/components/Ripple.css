@@ -1,6 +1,5 @@
 .ripple {
   position: absolute;
-  z-index: 10;
   border-radius: 50%;
 
   display: block;
@@ -21,7 +20,7 @@
   }
   100% {
     opacity: 0;
-    width: 4em;
-    height: 4em;
+    width: 8em;
+    height: 8em;
   }
 }
