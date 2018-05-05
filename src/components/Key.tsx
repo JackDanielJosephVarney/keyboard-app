@@ -25,7 +25,11 @@ export default class Key extends React.Component<Props, State> {
   render() {
     const s: React.CSSProperties = { backgroundColor: this.props.color };
 
-    return <button style={s} className={this.state.className} />;
+    return (
+      <button style={s} className={this.state.className} onClick={this.onEvent}>
+        {this.props.children}
+      </button>
+    );
   }
 
   componentWillUnmount() {
@@ -34,9 +38,13 @@ export default class Key extends React.Component<Props, State> {
 
   onKeyDown = (event: KeyboardEvent) => {
     if (event.keyCode === this.props.keyCode) {
-      this.emitSound();
-      this.animateButton();
+      this.onEvent();
     }
+  };
+
+  onEvent = () => {
+    this.emitSound();
+    this.animateButton();
   };
 
   emitSound() {
