@@ -46,9 +46,7 @@ export default class Keyboard extends React.Component<Props, State> {
       <KeyboardContext.Consumer key={i}>
         {context => (
           <div className={this.getNote(i).length > 1 ? 'key-wrapper sharp-key-wrapper' : 'key-wrapper not-so-sharp-key-wrapper'}>
-            <Key freq={MusicUtils.getSemitone(c4, i)} audioContext={this.audioContext} keyCode={keyCode} waveType={context.waveType}>
-              {this.getNote(i)}
-            </Key>
+            <Key freq={MusicUtils.getSemitone(c4, i)} audioContext={this.audioContext} keyCode={keyCode} waveType={context.waveType} />
           </div>
         )}
       </KeyboardContext.Consumer>
