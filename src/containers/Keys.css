@@ -22,7 +22,7 @@
 }
 
 .not-so-sharp-key-wrapper {
-  height: 240px;
+  height: 300px;
   margin: 0 3px;
   flex: 1;
 }
@@ -38,7 +38,7 @@
 }
 
 .sharp-key-wrapper > button {
-  background-color: #d5d5d5;
+  background-color: #ffc107;
 }
 
 .seperator {
