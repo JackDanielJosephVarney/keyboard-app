@@ -26,7 +26,7 @@ export const MusicUtils = Object.freeze({
   getSemitone: (freq: number, amount: number): number => {
     switch (true) {
       case amount < 0:
-        const iterations = +amount;
+        const iterations = -amount;
 
         for (let i = 1; i <= iterations; i++) {
           freq = minusSemitone(freq);

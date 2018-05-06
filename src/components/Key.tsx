@@ -28,7 +28,6 @@ export default class Key extends React.Component<Props, State> {
 
   componentWillMount() {
     document.addEventListener('keydown', this.onKeyDown);
-    console.log(document);
   }
 
   render() {

@@ -5,8 +5,6 @@ import { MusicUtils } from '../utilities/MusicUtils';
 import { KeyboardContext } from '../state/KeyboardProvider';
 import { WaveType } from '../enums/enums';
 
-const c4 = 261.63;
-const a4 = 440;
 const flat = String.fromCharCode(9837);
 const notes: string[] = ['C', 'C#/D' + flat, 'D', 'D#/E' + flat, 'E', 'F', 'F#/G' + flat, 'G', 'G#/A' + flat, 'A', 'A#/B' + flat, 'B'];
 const keyCodes: number[] = [
@@ -46,7 +44,12 @@ export default class Keyboard extends React.Component<Props, State> {
       <KeyboardContext.Consumer key={i}>
         {context => (
           <div className={this.getNote(i).length > 1 ? 'key-wrapper sharp-key-wrapper' : 'key-wrapper not-so-sharp-key-wrapper'}>
-            <Key freq={MusicUtils.getSemitone(c4, i)} audioContext={this.audioContext} keyCode={keyCode} waveType={context.waveType} />
+            <Key
+              freq={MusicUtils.getSemitone(context.rootNote, i)}
+              audioContext={this.audioContext}
+              keyCode={keyCode}
+              waveType={context.waveType}
+            />
           </div>
         )}
       </KeyboardContext.Consumer>
