@@ -53,6 +53,7 @@ export default class Keyboard extends React.Component<Props, State> {
               audioContext={this.audioContext}
               keyCode={keyCode}
               waveType={context.waveType}
+              ariaLabel={this.getNote(i)}
             />
           </div>
         )}

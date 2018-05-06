@@ -27,6 +27,14 @@
   flex: 1;
 }
 
+.not-so-sharp-key-wrapper:nth-of-type(1) {
+  margin: 0 3px 0 0;
+}
+
+.not-so-sharp-key-wrapper:last-of-type {
+  margin: 0 0 0 3px;
+}
+
 .not-so-sharp-key-wrapper > button {
   background-color: #fff;
 }

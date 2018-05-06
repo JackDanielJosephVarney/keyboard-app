@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: 'Share Tech Mono', monospace;
   cursor: pointer;
 }
 

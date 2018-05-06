@@ -10,7 +10,7 @@ export interface Props {
   audioContext: AudioContext;
   keyCode: number;
   waveType: WaveType;
-  color?: string;
+  ariaLabel: string;
 }
 
 export interface State {
@@ -31,9 +31,8 @@ export default class Key extends React.Component<Props, State> {
   }
 
   render() {
-    const s: React.CSSProperties = { backgroundColor: this.props.color };
     return (
-      <button style={s} className="key" onClick={this.onEvent}>
+      <button className="key" onClick={this.onEvent} aria-label={this.props.ariaLabel}>
         {this.state.ripples.map(id => <Ripple key={id} />)}
         {this.props.children}
       </button>

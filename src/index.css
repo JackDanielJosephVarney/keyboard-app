@@ -1,10 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   height: 100vh;
 
-  background: #03a9f4;
+  background: #1e88e5;
 }
 
 #root {
