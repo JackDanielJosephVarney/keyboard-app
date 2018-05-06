@@ -14,8 +14,7 @@ export default class NoteConfig extends React.Component<Props, State> {
     return (
       <KeyboardContext.Consumer>
         {(context: KeyboardState) => (
-          <div className="noteconfig-container">
-            <h2>Root note: </h2>
+          <div className="buttonContainer">
             <DashboardButton onClick={() => context.setRootNote(12)}>+12</DashboardButton>
             <DashboardButton onClick={() => context.setRootNote(-12)}>-12</DashboardButton>
             <DashboardButton onClick={() => context.setRootNote(1)}>1</DashboardButton>

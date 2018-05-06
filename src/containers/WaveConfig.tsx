@@ -10,8 +10,7 @@ import { KeyboardContext, KeyboardState } from '../state/KeyboardProvider';
 export default _ => (
   <KeyboardContext.Consumer>
     {(context: KeyboardState) => (
-      <div className="wave-input-container">
-        <h2>Wave type:</h2>
+      <div className="wave-inputs-container">
         <label className="wave-input" htmlFor={WaveType.square}>
           <input defaultChecked type="radio" name="setWave" id={WaveType.square} onChange={() => context.setWave(WaveType.square)} />
           <img src={square} alt="square wave" width="32" height="24" />

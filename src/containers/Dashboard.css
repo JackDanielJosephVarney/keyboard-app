@@ -1,7 +1,10 @@
-.wave-wrapper {
+.config-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-.note-wrapper {
+.config-title {
+  font-size: 1.2em;
+  margin: 2px 0;
+  color: white;
 }

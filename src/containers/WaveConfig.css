@@ -1,12 +1,7 @@
-.wave-input-container {
+.wave-inputs-container {
+  margin-left: auto;
   display: flex;
   flex-direction: row;
-}
-
-.wave-input-container h2 {
-  font-size: 1.2em;
-  margin: 2px 0;
-  color: white;
 }
 
 .wave-input {

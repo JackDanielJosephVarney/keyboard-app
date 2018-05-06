@@ -1,14 +1,7 @@
-.noteconfig-container {
-  display: flex;
-  flex-direction: row;
+.buttonContainer {
+  margin-left: auto;
 }
 
-.noteconfig-container h2 {
-  font-size: 1.2em;
-  margin: 2px 0;
-  color: white;
-}
-
-.noteconfig-container button {
+.buttonContainer button {
   margin: 0 3px;
 }
