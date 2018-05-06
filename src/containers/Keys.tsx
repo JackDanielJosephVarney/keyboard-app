@@ -33,7 +33,11 @@ export interface State {}
 
 export default class Keyboard extends React.Component<Props, State> {
   state = {};
-  audioContext: AudioContext = MusicUtils.getAudioContext();
+  audioContext: AudioContext;
+
+  componentWillMount() {
+    this.audioContext = MusicUtils.getAudioContext();
+  }
 
   render() {
     return <div className="keys-container">{this.generateKeyboard()}</div>;

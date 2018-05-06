@@ -7,11 +7,14 @@ import KeyboardProvider from './state/KeyboardProvider';
 class App extends React.Component {
   public render() {
     return (
-      <KeyboardProvider>
-        <div className="keyboard-wrapper">
-          <Keyboard />
-        </div>
-      </KeyboardProvider>
+      <>
+        <h1 className="title">Jacks awesome keyboard</h1>
+        <KeyboardProvider>
+          <div className="keyboard-wrapper">
+            <Keyboard />
+          </div>
+        </KeyboardProvider>
+      </>
     );
   }
 }

@@ -32,7 +32,6 @@ export default class Key extends React.Component<Props, State> {
 
   render() {
     const s: React.CSSProperties = { backgroundColor: this.props.color };
-
     return (
       <button style={s} className="key" onClick={this.onEvent}>
         {this.state.ripples.map(id => <Ripple key={id} />)}
@@ -46,6 +45,7 @@ export default class Key extends React.Component<Props, State> {
   }
 
   onEvent = () => {
+    this.props.audioContext.resume();
     this.emitSound();
     this.appendMultipleRipples();
   };
@@ -57,8 +57,8 @@ export default class Key extends React.Component<Props, State> {
   };
 
   emitSound() {
-    const now = this.props.audioContext.currentTime;
-    const { gainNode, oscNode } = MusicUtils.getNodes(this.props.audioContext);
+    const now: number = this.props.audioContext.currentTime;
+    let { gainNode, oscNode } = MusicUtils.getNodes(this.props.audioContext);
 
     oscNode.type = this.props.waveType;
     oscNode.frequency.setValueAtTime(this.props.freq, now);
@@ -69,6 +69,11 @@ export default class Key extends React.Component<Props, State> {
     gainNode.gain.linearRampToValueAtTime(0, now + 1);
 
     oscNode.start();
+
+    setTimeout(() => {
+      oscNode.stop(0);
+      oscNode.disconnect();
+    }, 1500);
   }
 
   appendMultipleRipples() {
@@ -78,7 +83,7 @@ export default class Key extends React.Component<Props, State> {
 
       this.appendRipple();
 
-      if (count === 12) {
+      if (count === 4) {
         clearInterval(interval);
       }
     }, 5);

@@ -13,7 +13,9 @@ export default class Dashboard extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <NoteConfig />
+        <div className="note-wrapper">
+          <NoteConfig />
+        </div>
         <div className="wave-wrapper">
           <WaveConfig />
         </div>

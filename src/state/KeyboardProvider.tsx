@@ -12,6 +12,7 @@ export interface KeyboardState {
   setWave: Function;
   rootNote: number;
   setRootNote: Function;
+  resetRootNote: Function;
 }
 
 export const KeyboardContext = React.createContext({}) as React.Context<KeyboardState>;
@@ -30,7 +31,8 @@ export default class KeyboardProvider extends React.Component<{}, State> {
           waveType: this.state.waveType,
           setWave: (waveType: WaveType) => this.setState({ waveType }),
           rootNote: this.state.rootNote,
-          setRootNote: (change: number) => this.setState({ rootNote: MusicUtils.getSemitone(this.state.rootNote, change) })
+          setRootNote: (change: number) => this.setState({ rootNote: MusicUtils.getSemitone(this.state.rootNote, change) }),
+          resetRootNote: () => this.setState({ rootNote: c4 })
         }}
       >
         {this.props.children}

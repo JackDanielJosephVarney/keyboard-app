@@ -1,5 +1,7 @@
 import * as React from 'react';
+import './NoteConfig.css';
 import { KeyboardContext, KeyboardState } from '../state/KeyboardProvider';
+import DashboardButton from '../components/DashboardButton';
 
 export interface Props {}
 
@@ -12,12 +14,14 @@ export default class NoteConfig extends React.Component<Props, State> {
     return (
       <KeyboardContext.Consumer>
         {(context: KeyboardState) => (
-          <>
-            <button onClick={() => context.setRootNote(12)}>Increase octave</button>
-            <button onClick={() => context.setRootNote(-12)}>Decrease octave</button>
-            <button onClick={() => context.setRootNote(1)}>Increase semitone</button>
-            <button onClick={() => context.setRootNote(-1)}>Decrease semitone</button>
-          </>
+          <div className="noteconfig-container">
+            <h2>Root note: </h2>
+            <DashboardButton onClick={() => context.setRootNote(12)}>+12</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(-12)}>-12</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(1)}>1</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(-1)}>-1</DashboardButton>
+            <DashboardButton onClick={() => context.resetRootNote()}>reset</DashboardButton>
+          </div>
         )}
       </KeyboardContext.Consumer>
     );

@@ -1,3 +1,21 @@
+.title {
+  font-family: 'Megrim', cursive;
+  font-size: 5em;
+  text-align: center;
+  color: white;
+
+  margin: 0;
+  padding: 0 0 8px;
+}
+
 .keyboard-wrapper {
-  margin: 40px 0 0 0;
+  width: 70%;
+  margin: 40px 0 0 15%;
+}
+
+@media screen and (max-width: 1260px) {
+  .keyboard-wrapper {
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
 }
