@@ -1,37 +1,24 @@
 .config-title {
   font-size: 1.8em;
   margin: 2px 0;
-  color: white;
-}
+  color: white; }
 
 .config-wrapper {
-  margin-left: auto;
-}
+  margin-left: auto; }
 
 .dashboard {
   justify-content: space-between;
   width: 100%;
-  min-height: 130px;
-}
+  min-height: 130px; }
 
 .dashboard-col {
   width: 50%;
   margin: 0 4px 8px 0;
-  padding: 12px;
-}
-
-.dashboard-col:first-of-type {
-  margin: 0 4px 8px 0;
-}
-
-.dashboard-col:last-of-type {
-  margin: 0 0 8px 4px;
-}
-
-.dashboard-row {
-  /* margin: 0 0 auto 0; */
-}
+  padding: 12px; }
+  .dashboard-col:first-of-type {
+    margin: 0 4px 8px 0; }
+  .dashboard-col:last-of-type {
+    margin: 0 0 8px 4px; }
 
 .dashboard-row:last-of-type {
-  margin-top: 8px;
-}
+  margin-top: 8px; }

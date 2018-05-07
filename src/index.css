@@ -1,37 +1,27 @@
 * {
-  font-family: 'Share Tech Mono', monospace;
-}
+  font-family: 'Share Tech Mono', monospace; }
 
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-
-  background: #1e88e5;
-}
+  background: #1e88e5; }
 
 #root {
   height: 100%;
-  width: 100%;
-}
+  width: 100%; }
 
 .flex-row {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 .flex-row-res {
   display: flex;
-  flex-direction: row;
-}
-
-@media screen and (max-width: 1280px) {
-  .flex-row-res {
-    flex-direction: column;
-  }
-}
+  flex-direction: row; }
+  @media screen and (max-width: 1280px) {
+    .flex-row-res {
+      flex-direction: column; } }
 
 .flex-column {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }

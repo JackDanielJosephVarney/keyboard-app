@@ -3,33 +3,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; }
+  justify-content: flex-start;
+}
 
 .title {
   font-family: 'Megrim', cursive;
   font-size: 5em;
   color: white;
-  margin: 40px 0; }
+
+  margin: 40px 0;
+
   @media screen and (max-width: 1280px) {
-    .title {
-      margin-top: 15%;
-      font-size: 3em; } }
+    margin-top: 15%;
+    font-size: 3em;
+  }
+
   @media screen and (max-height: 600px) {
-    .title {
-      display: none; } }
+    display: none;
+  }
+}
 
 .keyboard-wrapper {
-  width: 70%; }
+  width: 70%;
+
   @media screen and (max-width: 1280px) {
-    .keyboard-wrapper {
-      width: 100%;
-      margin: auto 0 0 0; } }
+    width: 100%;
+    margin: auto 0 0 0;
+  }
+
   @media screen and (max-width: 600px) {
-    .keyboard-wrapper {
-      display: none; } }
+    display: none;
+  }
+}
 
 .mobile-message {
-  display: none; }
+  display: none;
+
   @media screen and (max-width: 600px) {
-    .mobile-message {
-      display: inherit; } }
+    display: inherit;
+  }
+}
