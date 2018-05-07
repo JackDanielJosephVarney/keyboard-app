@@ -24,7 +24,19 @@ const keyCodes: number[] = [
   76, // l
   190, // .
   186, // ;
-  191 // /
+  69, // e
+  82, // r
+  53, // 5
+  84, // t
+  54, // 6
+  89, // y
+  55, // 7
+  85, // u
+  73, // i
+  57, // 9
+  79, // o
+  48, // 0
+  80 // p
 ]; // qwerty 4 life
 
 export interface Props {}
@@ -72,9 +84,18 @@ export default class Keyboard extends React.Component<Props, State> {
           {keys[7]}
           {keys[9]}
           {keys[11]}
+
           {keys[12]}
           {keys[14]}
           {keys[16]}
+          {keys[17]}
+          {keys[19]}
+          {keys[21]}
+          {keys[23]}
+
+          {keys[24]}
+          {keys[26]}
+          {keys[28]}
         </div>
         <div className="flex-row sharp-key-container">
           <div className="seperator sep-se" />
@@ -88,9 +109,21 @@ export default class Keyboard extends React.Component<Props, State> {
           <div className="seperator sep-x" />
           {keys[10]}
           <div className="seperator sep-magic" />
+
           {keys[13]}
           <div className="seperator sep-x" />
           {keys[15]}
+          <div className="seperator sep-magic" />
+          {keys[18]}
+          <div className="seperator sep-x" />
+          {keys[20]}
+          <div className="seperator sep-x" />
+          {keys[22]}
+          <div className="seperator sep-magic" />
+
+          {keys[25]}
+          <div className="seperator sep-x" />
+          {keys[27]}
           <div className="seperator sep-se" />
         </div>
       </>
@@ -99,12 +132,10 @@ export default class Keyboard extends React.Component<Props, State> {
 
   // since there are more keys than notes you need to loop back to the start
   getNote(i: number): string {
-    let index = i;
-
-    if (i > notes.length - 1) {
-      index = i - notes.length;
+    while (i > notes.length - 1) {
+      i = i - notes.length;
     }
 
-    return notes[index];
+    return notes[i];
   }
 }
