@@ -77,9 +77,9 @@ export default class Key extends React.Component<Props, State> {
 
     gainNode.gain.setValueAtTime(0, now);
     //attack
-    gainNode.gain.linearRampToValueAtTime(0.02, now + this.attack);
+    gainNode.gain.linearRampToValueAtTime(0.05, now + this.attack);
     //decay
-    gainNode.gain.linearRampToValueAtTime(0.002, now + this.decay);
+    gainNode.gain.linearRampToValueAtTime(0.008, now + this.decay);
     gainNode.gain.linearRampToValueAtTime(0, now + this.decay + this.decay / 2);
 
     oscNode.start();
