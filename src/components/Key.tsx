@@ -9,6 +9,7 @@ export interface Props {
   freq: number;
   audioContext: AudioContext;
   keyCode: number;
+  extraCodes?: number[];
   waveType: WaveType;
   ariaLabel: string;
   decay: number;
@@ -32,7 +33,13 @@ export default class Key extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    document.addEventListener('keydown', this.onKeyDown);
+    if (this.props.extraCodes) {
+      for (let keyCode of this.props.extraCodes) {
+        document.addEventListener('keydown', this.onKeyDown(keyCode));
+      }
+    }
+
+    document.addEventListener('keydown', this.onKeyDown(this.props.keyCode));
 
     this.attack = this.props.attack;
     this.decay = this.props.decay + this.props.attack;
@@ -53,19 +60,25 @@ export default class Key extends React.Component<Props, State> {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.onKeyDown);
+    document.removeEventListener('keydown', this.onKeyDown(this.props.keyCode));
+
+    if (this.props.extraCodes) {
+      for (let keyCode of this.props.extraCodes) {
+        document.removeEventListener('keydown', this.onKeyDown(keyCode));
+      }
+    }
   }
+
+  onKeyDown = (keyCode: number) => (event: KeyboardEvent) => {
+    if (event.keyCode === keyCode && !event.repeat) {
+      this.onEvent();
+    }
+  };
 
   onEvent = () => {
     this.props.audioContext.resume();
     this.emitSound();
     this.appendMultipleRipples();
-  };
-
-  onKeyDown = (event: KeyboardEvent) => {
-    if (event.keyCode === this.props.keyCode && !event.repeat) {
-      this.onEvent();
-    }
   };
 
   emitSound() {
@@ -92,12 +105,13 @@ export default class Key extends React.Component<Props, State> {
 
   appendMultipleRipples() {
     let count = 0;
+    const isMobile = window.innerWidth < 1280;
     const interval = setInterval(() => {
       count++;
 
       this.appendRipple();
 
-      if (count === 6) {
+      if (isMobile ? count === 3 : count === 6) {
         clearInterval(interval);
       }
     }, 5);

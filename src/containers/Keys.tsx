@@ -56,6 +56,10 @@ export default class Keyboard extends React.Component<Props, State> {
   }
 
   generateKeyboard(): JSX.Element {
+    const extraCCodes: number[] = [81];
+    const extraDCodes: number[] = [87];
+    const extraECodes: number[] = [191];
+
     const keys = keyCodes.map((keyCode, i) => (
       <KeyboardContext.Consumer key={i}>
         {context => (
@@ -68,6 +72,19 @@ export default class Keyboard extends React.Component<Props, State> {
               ariaLabel={this.getNote(i)}
               attack={context.attack}
               decay={context.decay}
+              extraCodes={((): number[] => {
+                // lmao im not cleaning this up
+                const note: string = this.getNote(i);
+                if (note === 'C' && i > 2) {
+                  return extraCCodes.splice(0, extraCCodes.length) || null;
+                } else if (note === 'D' && i > 3) {
+                  return extraDCodes.splice(0, 1) || null;
+                } else if (note === 'E' && i > 4) {
+                  return extraECodes.splice(0, 1) || null;
+                } else {
+                  return null;
+                }
+              })()}
             />
           </div>
         )}
