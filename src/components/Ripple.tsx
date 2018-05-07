@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Ripple.css';
 import { Utils } from '../utilities/Utils';
-import { Colours } from '../enums/Colours';
+import { Colours } from '../enums/enums';
 
 export interface State {
   isAlive: boolean;
