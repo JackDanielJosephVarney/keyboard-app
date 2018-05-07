@@ -16,12 +16,18 @@ export default class extends React.Component<Props, State> {
 
   render() {
     return (
-      <button className={this.state.className} onClick={this.props.onClick} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
+      <button
+        className={this.state.className}
+        onClick={this.props.onClick}
+        onMouseDown={this.onFocus}
+        onMouseUp={this.onUnfocus}
+        onMouseLeave={this.onUnfocus}
+      >
         {this.props.children}
       </button>
     );
   }
 
-  onMouseDown = () => this.setState({ className: 'dashboard-button dashboard-button-focus' });
-  onMouseUp = () => this.setState({ className: 'dashboard-button dashboard-button-unfocused' });
+  onFocus = () => this.setState({ className: 'dashboard-button dashboard-button-focus' });
+  onUnfocus = () => this.setState({ className: 'dashboard-button dashboard-button-unfocused' });
 }
