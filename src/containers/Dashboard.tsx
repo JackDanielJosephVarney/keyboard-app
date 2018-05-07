@@ -10,16 +10,20 @@ export default class Dashboard extends React.Component {
       <div className="flex-row dashboard">
         <div className="flex-column dashboard-col">
           <div className="flex-row-res dashboard-row">
-            <h2 className="config-title">Alter root: </h2>
-            <NoteConfig />
+            <h2 className="config-title">Pitch: </h2>
+            <div className="config-wrapper">
+              <NoteConfig />
+            </div>
           </div>
           <div className="flex-row-res dashboard-row">
-            <h2 className="config-title">Wave type: </h2>
-            <WaveConfig />
+            <h2 className="config-title">Wave: </h2>
+            <div className="config-wrapper">
+              <WaveConfig />
+            </div>
           </div>
         </div>
         <div className="flex-column dashboard-col">
-          <h2 className="config-title">Envelope config: </h2>
+          <h2 className="config-title">Envelope: </h2>
           <EnvelopeConfig />
         </div>
       </div>

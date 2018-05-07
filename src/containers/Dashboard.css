@@ -4,25 +4,28 @@
   color: white;
 }
 
+.config-wrapper {
+  margin-left: auto;
+}
+
 .dashboard {
   justify-content: space-between;
   width: 100%;
-  min-height: 120px;
+  min-height: 130px;
 }
 
 .dashboard-col {
   width: 50%;
-  background-color: #ec407a;
-  border: 2px solid white;
+  margin: 0 4px 8px 0;
   padding: 12px;
 }
 
 .dashboard-col:first-of-type {
-  margin: 0 2px 4px 0;
+  margin: 0 4px 8px 0;
 }
 
 .dashboard-col:last-of-type {
-  margin: 0 0 4px 2px;
+  margin: 0 0 8px 4px;
 }
 
 .dashboard-row {
