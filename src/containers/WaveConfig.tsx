@@ -10,22 +10,22 @@ import { KeyboardContext, KeyboardState } from '../state/KeyboardProvider';
 export default _ => (
   <KeyboardContext.Consumer>
     {(context: KeyboardState) => (
-      <div className="wave-inputs-container">
-        <label className="wave-input" htmlFor={WaveType.square}>
-          <input defaultChecked type="radio" name="setWave" id={WaveType.square} onChange={() => context.setWave(WaveType.square)} />
-          <img src={square} alt="square wave" width="32" height="24" />
+      <div className="flex-row wave-inputs-container">
+        <label className="flex-row wave-input" htmlFor={WaveType.square}>
+          <input type="radio" name="setWave" id={WaveType.square} onChange={() => context.setWave(WaveType.square)} />
+          <img src={square} alt="square wave" width="32" height="25" />
         </label>
-        <label className="wave-input" htmlFor={WaveType.sawtooth}>
+        <label className="flex-row wave-input" htmlFor={WaveType.sawtooth}>
           <input type="radio" name="setWave" id={WaveType.sawtooth} onChange={() => context.setWave(WaveType.sawtooth)} />
-          <img src={sawtooth} alt="sawtooth wave" width="32" height="24" />
+          <img src={sawtooth} alt="sawtooth wave" width="32" height="25" />
         </label>
-        <label className="wave-input" htmlFor={WaveType.triangle}>
+        <label className="flex-row wave-input" htmlFor={WaveType.triangle}>
           <input type="radio" name="setWave" id={WaveType.triangle} onChange={() => context.setWave(WaveType.triangle)} />
-          <img src={triangle} alt="triangle wave" width="32" height="24" />
+          <img src={triangle} alt="triangle wave" width="32" height="25" />
         </label>
-        <label className="wave-input" htmlFor={WaveType.sine}>
-          <input type="radio" name="setWave" id={WaveType.sine} onChange={() => context.setWave(WaveType.sine)} />
-          <img src={sine} alt="sine wave" width="32" height="24" />
+        <label className="flex-row wave-input" htmlFor={WaveType.sine}>
+          <input defaultChecked type="radio" name="setWave" id={WaveType.sine} onChange={() => context.setWave(WaveType.sine)} />
+          <img src={sine} alt="sine wave" width="32" height="25" />
         </label>
       </div>
     )}

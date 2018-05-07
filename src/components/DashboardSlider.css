@@ -1,0 +1,36 @@
+.dashboard-slider-container {
+  margin: 0 8px 0 0;
+  align-items: center;
+}
+
+.dashboard-slider-wrapper {
+  width: 80%;
+  margin-left: auto;
+}
+
+.dashboard-slider {
+}
+
+.dashboard-slider {
+  appearance: none;
+  width: 100%;
+  margin: 10px 0;
+  height: 3px;
+  background: #c5cae9;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.dashboard-slider:hover {
+  opacity: 1;
+}
+
+.dashboard-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3f51b5;
+  cursor: pointer;
+}

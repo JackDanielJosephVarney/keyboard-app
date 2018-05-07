@@ -54,20 +54,17 @@ export default class Keyboard extends React.Component<Props, State> {
               keyCode={keyCode}
               waveType={context.waveType}
               ariaLabel={this.getNote(i)}
+              attack={context.attack}
+              decay={context.decay}
             />
           </div>
         )}
       </KeyboardContext.Consumer>
     ));
 
-    const y = 3;
-    const x = 3 * 1.5;
-    const se = y * 2;
-    const magic = se * 2;
-
     return (
       <>
-        <div className="not-so-sharp-key-container">
+        <div className="flex-row">
           {keys[0]}
           {keys[2]}
           {keys[4]}
@@ -79,22 +76,22 @@ export default class Keyboard extends React.Component<Props, State> {
           {keys[14]}
           {keys[16]}
         </div>
-        <div className="sharp-key-container">
-          <div className="seperator" style={{ flex: se }} />
+        <div className="flex-row sharp-key-container">
+          <div className="seperator sep-se" />
           {keys[1]}
-          <div className="seperator" style={{ flex: x }} />
+          <div className="seperator sep-x" />
           {keys[3]}
-          <div className="seperator" style={{ flex: magic }} />
+          <div className="seperator sep-magic" />
           {keys[6]}
-          <div className="seperator" style={{ flex: x }} />
+          <div className="seperator sep-x" />
           {keys[8]}
-          <div className="seperator" style={{ flex: x }} />
+          <div className="seperator sep-x" />
           {keys[10]}
-          <div className="seperator" style={{ flex: magic }} />
+          <div className="seperator sep-magic" />
           {keys[13]}
-          <div className="seperator" style={{ flex: x }} />
+          <div className="seperator sep-x" />
           {keys[15]}
-          <div className="seperator" style={{ flex: se }} />
+          <div className="seperator sep-se" />
         </div>
       </>
     );

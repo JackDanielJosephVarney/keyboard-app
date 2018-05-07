@@ -11,6 +11,8 @@ export interface Props {
   keyCode: number;
   waveType: WaveType;
   ariaLabel: string;
+  decay: number;
+  attack: number;
 }
 
 export interface State {
@@ -18,6 +20,9 @@ export interface State {
 }
 
 export default class Key extends React.Component<Props, State> {
+  attack: number;
+  decay: number;
+
   state = {
     ripples: []
   };
@@ -28,6 +33,14 @@ export default class Key extends React.Component<Props, State> {
 
   componentWillMount() {
     document.addEventListener('keydown', this.onKeyDown);
+
+    this.attack = this.props.attack;
+    this.decay = this.props.decay + this.props.attack;
+  }
+
+  componentWillReceiveProps(props: Props) {
+    this.attack = props.attack;
+    this.decay = props.decay + props.attack;
   }
 
   render() {
@@ -63,9 +76,11 @@ export default class Key extends React.Component<Props, State> {
     oscNode.frequency.setValueAtTime(this.props.freq, now);
 
     gainNode.gain.setValueAtTime(0, now);
-    gainNode.gain.linearRampToValueAtTime(0.02, now + 0.001);
-    gainNode.gain.linearRampToValueAtTime(0.003, now + 0.5);
-    gainNode.gain.linearRampToValueAtTime(0, now + 1);
+    //attack
+    gainNode.gain.linearRampToValueAtTime(0.02, now + this.attack);
+    //decay
+    gainNode.gain.linearRampToValueAtTime(0.002, now + this.decay);
+    gainNode.gain.linearRampToValueAtTime(0, now + this.decay + this.decay / 2);
 
     oscNode.start();
 
@@ -82,7 +97,7 @@ export default class Key extends React.Component<Props, State> {
 
       this.appendRipple();
 
-      if (count === 4) {
+      if (count === 6) {
         clearInterval(interval);
       }
     }, 5);

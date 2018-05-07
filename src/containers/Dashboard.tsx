@@ -2,24 +2,26 @@ import * as React from 'react';
 import './Dashboard.css';
 import NoteConfig from './NoteConfig';
 import WaveConfig from './WaveConfig';
+import EnvelopeConfig from './EnvelopeConfig';
 
-export interface Props {}
-
-export interface State {}
-
-export default class Dashboard extends React.Component<Props, State> {
-  state = {};
-
+export default class Dashboard extends React.Component {
   render() {
     return (
-      <div>
-        <div className="config-container">
-          <h2 className="config-title">Root type: </h2>
-          <NoteConfig />
+      <div className="flex-row dashboard">
+        <div className="flex-column dashboard-col">
+          <div className=" flex-row dashboard-row">
+            <h2 className="config-title">Alter root: </h2>
+            <NoteConfig />
+          </div>
+          <div className="flex-row dashboard-row">
+            <h2 className="config-title">Wave type: </h2>
+            <WaveConfig />
+          </div>
         </div>
-        <div className="config-container">
-          <h2 className="config-title">Wave type: </h2>
-          <WaveConfig />
+        <div className="flex-column dashboard-col">
+          <h2 className="config-title">Envelope config: </h2>
+          <button onClick={() => this.setState({ showMenu: false })}>close me</button>
+          <EnvelopeConfig />
         </div>
       </div>
     );

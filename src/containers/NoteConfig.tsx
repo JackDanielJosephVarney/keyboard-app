@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './NoteConfig.css';
+import reset from '../assets/reset.svg';
 import { KeyboardContext, KeyboardState } from '../state/KeyboardProvider';
 import DashboardButton from '../components/DashboardButton';
 
@@ -14,12 +15,14 @@ export default class NoteConfig extends React.Component<Props, State> {
     return (
       <KeyboardContext.Consumer>
         {(context: KeyboardState) => (
-          <div className="buttonContainer">
+          <div className="note-button-container">
             <DashboardButton onClick={() => context.setRootNote(12)}>+12</DashboardButton>
             <DashboardButton onClick={() => context.setRootNote(-12)}>-12</DashboardButton>
-            <DashboardButton onClick={() => context.setRootNote(1)}>1</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(1)}>+1</DashboardButton>
             <DashboardButton onClick={() => context.setRootNote(-1)}>-1</DashboardButton>
-            <DashboardButton onClick={() => context.resetRootNote()}>reset</DashboardButton>
+            <DashboardButton onClick={() => context.resetRootNote()}>
+              <img src={reset} alt="reset root note" width={22} height={22} style={{ pointerEvents: 'none' }} />
+            </DashboardButton>
           </div>
         )}
       </KeyboardContext.Consumer>

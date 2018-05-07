@@ -8,17 +8,10 @@
 }
 
 .sharp-key-container {
-  display: flex;
-  flex-direction: row;
   position: absolute;
   pointer-events: none;
   top: 0;
   width: 100%;
-}
-
-.not-so-sharp-key-container {
-  display: flex;
-  flex-direction: row;
 }
 
 .not-so-sharp-key-wrapper {
@@ -51,4 +44,16 @@
 
 .seperator {
   pointer-events: none;
+}
+
+.sep-x {
+  flex: 3.8;
+}
+
+.sep-se {
+  flex: 5.5;
+}
+
+.sep-magic {
+  flex: 11.6;
 }
