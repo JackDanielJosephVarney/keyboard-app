@@ -21,7 +21,7 @@ export default class NoteConfig extends React.Component<Props, State> {
             <DashboardButton onClick={() => context.setRootNote(1)}>+1</DashboardButton>
             <DashboardButton onClick={() => context.setRootNote(-1)}>-1</DashboardButton>
             <DashboardButton onClick={() => context.resetRootNote()}>
-              <img src={reset} alt="reset root note" width={22} height={22} style={{ pointerEvents: 'none' }} />
+              <img src={reset} alt="reset root note" width={18} height={18} style={{ pointerEvents: 'none' }} />
             </DashboardButton>
           </div>
         )}

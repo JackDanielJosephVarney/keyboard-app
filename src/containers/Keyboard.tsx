@@ -15,11 +15,12 @@ export default class Keyboard extends React.Component<Props, State> {
     isMobile: false
   };
 
+  setIsMobile = () => this.setState({ isMobile: window.innerWidth < 1280 });
+
   componentDidMount() {
-    this.setState({ isMobile: window.innerWidth < 1280 });
-    window.addEventListener('resize', () => {
-      this.setState({ isMobile: window.innerWidth < 1280 });
-    });
+    this.setIsMobile();
+
+    window.addEventListener('resize', this.setIsMobile);
   }
 
   render() {

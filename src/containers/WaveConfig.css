@@ -4,15 +4,15 @@
 }
 
 .wave-input img {
-  margin: 5px 14px;
+  margin: 5px 12px;
   cursor: pointer;
 }
 
 input[type='radio']:checked + img {
   background-color: #e91e63;
   outline: 2px solid #880e4f;
-  padding: 5px 6px;
-  margin: 0 8px;
+  padding: 5px 8px;
+  margin: 0 3px;
 }
 
 .wave-input input {
