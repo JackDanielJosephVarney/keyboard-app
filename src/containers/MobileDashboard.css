@@ -1,0 +1,9 @@
+.mobile-dashboard-button {
+  margin: 4px 0 8px;
+  padding: 6px 8px;
+  border: none;
+
+  font-size: 1.5em;
+  color: white;
+  background-color: #880e4f;
+}
