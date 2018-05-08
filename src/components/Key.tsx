@@ -118,7 +118,7 @@ export default class Key extends React.Component<Props, State> {
   }
 
   appendRipple() {
-    const newID: string = this.getRippleID();
+    const newID: string = Utils.getRandomInt(100000, 999999).toString();
     this.setState({
       ripples: [...this.state.ripples, newID]
     });
@@ -133,9 +133,5 @@ export default class Key extends React.Component<Props, State> {
     this.setState({
       ripples: ripples
     });
-  }
-
-  getRippleID(): string {
-    return (Math.random() * 100000000).toString();
   }
 }
