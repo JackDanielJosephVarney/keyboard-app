@@ -93,14 +93,15 @@ export default class Key extends React.Component<Props, State> {
     gainNode.gain.linearRampToValueAtTime(0.05, now + this.attack);
     //decay
     gainNode.gain.linearRampToValueAtTime(0.008, now + this.decay);
-    gainNode.gain.linearRampToValueAtTime(0, now + this.decay + this.decay / 2);
+    gainNode.gain.linearRampToValueAtTime(0.001, now + this.decay * 1.5);
+    gainNode.gain.linearRampToValueAtTime(0, now + this.decay * 2);
 
     oscNode.start();
 
     setTimeout(() => {
       oscNode.stop(0);
       oscNode.disconnect();
-    }, 1500);
+    }, this.decay * 2000);
   }
 
   appendMultipleRipples() {
