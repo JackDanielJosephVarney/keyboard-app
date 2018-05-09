@@ -6,16 +6,11 @@
   height: 35px;
   background-color: #ffeb3b;
 
-  box-shadow: 0px 2px 2px #444;
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.dashboard-button-unfocused:hover {
-  box-shadow: 0px 2px 6px #444;
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-bottom: 3px solid #F9A825;
+  transition: border-bottom 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .dashboard-button-focus {
-  box-shadow: inset 0px 0px 3px black, 0px 0px 1px #444;
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-bottom: 0px solid #F9A825;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
