@@ -1,7 +1,11 @@
 ## About
 
-React app I'm making that will hopefully be a working keyboard, using the web audio api.
+Keyboard app I made using React and the web audio api.
+
+Will work with your keyboard and your mouse.
+
+Mobile support is spotty, it on my pc and my phone, I cant really test for anything more than that.
 
 You can view it here - https://mystifying-fermi-4239e8.netlify.com/
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)...
+This project was bootstrapped with [Create React App...](https://github.com/facebookincubator/create-react-app)
