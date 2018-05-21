@@ -16,10 +16,10 @@ export default class NoteConfig extends React.Component<Props, State> {
       <KeyboardContext.Consumer>
         {(context: KeyboardState) => (
           <div className="note-button-container">
-            <DashboardButton onClick={() => context.setRootNote(12)}>+12</DashboardButton>
-            <DashboardButton onClick={() => context.setRootNote(-12)}>-12</DashboardButton>
-            <DashboardButton onClick={() => context.setRootNote(1)}>+1</DashboardButton>
             <DashboardButton onClick={() => context.setRootNote(-1)}>-1</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(1)}>+1</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(-12)}>-12</DashboardButton>
+            <DashboardButton onClick={() => context.setRootNote(12)}>+12</DashboardButton>
             <DashboardButton onClick={() => context.resetRootNote()}>
               <img src={reset} alt="reset root note" width={18} height={18} style={{ pointerEvents: 'none' }} />
             </DashboardButton>

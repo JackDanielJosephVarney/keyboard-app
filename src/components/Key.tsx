@@ -52,7 +52,7 @@ export default class Key extends React.Component<Props, State> {
 
   render() {
     return (
-      <button className="key" onClick={this.onEvent} aria-label={this.props.ariaLabel}>
+      <button className="key" onMouseDown={this.onEvent} aria-label={this.props.ariaLabel}>
         {this.state.ripples.map(id => <Ripple key={id} />)}
         {this.props.children}
       </button>
