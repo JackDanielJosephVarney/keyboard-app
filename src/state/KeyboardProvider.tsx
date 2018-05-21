@@ -32,6 +32,20 @@ export default class KeyboardProvider extends React.Component<{}, State> {
     decay: 0.5
   };
 
+  componentWillMount() {
+    window.addEventListener('keydown', (e: KeyboardEvent) => {
+      // increase by 12 on caps lock
+      if (e.keyCode === 20) {
+        this.setState({ rootNote: MusicUtils.getSemitone(this.state.rootNote, 12) })
+      }
+
+      // decrease by 16 on shift 
+      if (e.keyCode === 16) {
+        this.setState({ rootNote: MusicUtils.getSemitone(this.state.rootNote, -12) })
+      }
+    })
+  }
+
   render() {
     return (
       <KeyboardContext.Provider
