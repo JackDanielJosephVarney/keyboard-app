@@ -4,7 +4,7 @@ Keyboard app I made using React and the web audio api.
 
 Will work with your keyboard and your mouse.
 
-Mobile support is spotty, it on my pc and my phone, I cant really test for anything more than that.
+Mobile support is spotty, it works on my pc and my phone, I cant really test for anything more than that.
 
 You can view it here - https://mystifying-fermi-4239e8.netlify.com/
 
