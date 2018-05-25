@@ -19,17 +19,15 @@ export default class EnvelopeConfig extends React.Component<Props, State> {
               max={1}
               step={0.01}
               default={context.attack}
-              onChange={e => context.setAttack(Number(e.currentTarget.value))}
-            >
+              onChange={e => context.setAttack(Number(e.currentTarget.value))}>
               Attack:
             </DashboardSlider>
             <DashboardSlider
               min={0.1}
               max={3}
               step={0.1}
-              default={context.decay}
-              onChange={e => context.setDecay(Number(e.currentTarget.value))}
-            >
+              default={context.release}
+              onChange={e => context.setRelease(Number(e.currentTarget.value))}>
               Release:
             </DashboardSlider>
           </>
