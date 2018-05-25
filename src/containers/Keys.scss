@@ -46,14 +46,14 @@
   pointer-events: none;
 }
 
-.sep-x {
-  flex: 3.8;
-}
-
-.sep-se {
+.sep-start-end {
   flex: 5.5;
 }
 
-.sep-magic {
+.sep-big-gap {
   flex: 11.6;
+}
+
+.sep-small-gap {
+  flex: 3.8;
 }

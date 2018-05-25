@@ -6,7 +6,20 @@ import { KeyboardContext } from '../state/KeyboardProvider';
 import { WaveType } from '../enums/enums';
 
 const flat = String.fromCharCode(9837);
-const notes: string[] = ['C', 'C#/D' + flat, 'D', 'D#/E' + flat, 'E', 'F', 'F#/G' + flat, 'G', 'G#/A' + flat, 'A', 'A#/B' + flat, 'B'];
+const notes: string[] = [
+  'C',
+  'C#/D' + flat,
+  'D',
+  'D#/E' + flat,
+  'E',
+  'F',
+  'F#/G' + flat,
+  'G',
+  'G#/A' + flat,
+  'A',
+  'A#/B' + flat,
+  'B'
+];
 const keyCodes: number[] = [
   90, // z
   83, // s
@@ -63,7 +76,12 @@ export default class Keyboard extends React.Component<Props, State> {
     const keys = keyCodes.map((keyCode, i) => (
       <KeyboardContext.Consumer key={i}>
         {context => (
-          <div className={this.getNote(i).length > 1 ? 'key-wrapper sharp-key-wrapper' : 'key-wrapper not-so-sharp-key-wrapper'}>
+          <div
+            className={
+              this.getNote(i).length > 1
+                ? 'key-wrapper sharp-key-wrapper'
+                : 'key-wrapper not-so-sharp-key-wrapper'
+            }>
             <Key
               freq={MusicUtils.getSemitone(context.rootNote, i)}
               audioContext={this.audioContext}
@@ -71,7 +89,7 @@ export default class Keyboard extends React.Component<Props, State> {
               waveType={context.waveType}
               ariaLabel={this.getNote(i)}
               attack={context.attack}
-              decay={context.decay}
+              decay={context.release}
               extraCodes={((): number[] => {
                 // lmao im not cleaning this up
                 const note: string = this.getNote(i);
@@ -115,33 +133,33 @@ export default class Keyboard extends React.Component<Props, State> {
           {keys[28]}
         </div>
         <div className="flex-row sharp-key-container">
-          <div className="seperator sep-se" />
+          <div className="seperator sep-start-end" />
           {keys[1]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[3]}
-          <div className="seperator sep-magic" />
+          <div className="seperator sep-big-gap" />
           {keys[6]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[8]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[10]}
-          <div className="seperator sep-magic" />
+          <div className="seperator sep-big-gap" />
 
           {keys[13]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[15]}
-          <div className="seperator sep-magic" />
+          <div className="seperator sep-big-gap" />
           {keys[18]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[20]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[22]}
-          <div className="seperator sep-magic" />
+          <div className="seperator sep-big-gap" />
 
           {keys[25]}
-          <div className="seperator sep-x" />
+          <div className="seperator sep-small-gap" />
           {keys[27]}
-          <div className="seperator sep-se" />
+          <div className="seperator sep-start-end" />
         </div>
       </>
     );
