@@ -6,7 +6,20 @@ import { KeyboardContext } from '../state/KeyboardProvider';
 import { WaveType } from '../enums/enums';
 
 const flat = String.fromCharCode(9837);
-const notes: string[] = ['C', 'C#/D' + flat, 'D', 'D#/E' + flat, 'E', 'F', 'F#/G' + flat, 'G', 'G#/A' + flat, 'A', 'A#/B' + flat, 'B'];
+const notes: string[] = [
+  'C',
+  'C#/D' + flat,
+  'D',
+  'D#/E' + flat,
+  'E',
+  'F',
+  'F#/G' + flat,
+  'G',
+  'G#/A' + flat,
+  'A',
+  'A#/B' + flat,
+  'B'
+];
 const keyCodes: number[] = [
   90, // z
   83, // s
@@ -63,7 +76,13 @@ export default class Keyboard extends React.Component<Props, State> {
     const keys = keyCodes.map((keyCode, i) => (
       <KeyboardContext.Consumer key={i}>
         {context => (
-          <div className={this.getNote(i).length > 1 ? 'key-wrapper sharp-key-wrapper' : 'key-wrapper not-so-sharp-key-wrapper'}>
+          <div
+            className={
+              this.getNote(i).length > 1
+                ? 'key-wrapper sharp-key-wrapper'
+                : 'key-wrapper not-so-sharp-key-wrapper'
+            }
+          >
             <Key
               freq={MusicUtils.getSemitone(context.rootNote, i)}
               audioContext={this.audioContext}
@@ -73,6 +92,7 @@ export default class Keyboard extends React.Component<Props, State> {
               attack={context.attack}
               decay={context.decay}
               extraCodes={((): number[] => {
+                // the below was a mistake
                 // lmao im not cleaning this up
                 const note: string = this.getNote(i);
                 if (note === 'C' && i > 2) {
@@ -91,6 +111,7 @@ export default class Keyboard extends React.Component<Props, State> {
       </KeyboardContext.Consumer>
     ));
 
+    // most of this class was a mistake lol...
     return (
       <>
         <div className="flex-row">

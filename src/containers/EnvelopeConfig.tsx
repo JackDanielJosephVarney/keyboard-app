@@ -18,7 +18,7 @@ export default class EnvelopeConfig extends React.Component<Props, State> {
               min={0.001}
               max={1}
               step={0.01}
-              default={context.attack}
+              defaultValue={context.attack}
               onChange={e => context.setAttack(Number(e.currentTarget.value))}
             >
               Attack:
@@ -27,7 +27,7 @@ export default class EnvelopeConfig extends React.Component<Props, State> {
               min={0.1}
               max={3}
               step={0.1}
-              default={context.decay}
+              defaultValue={context.decay}
               onChange={e => context.setDecay(Number(e.currentTarget.value))}
             >
               Release:

@@ -8,7 +8,7 @@ export interface State {
   className: string;
 }
 
-export default class Ripple extends React.Component<{}, State> {
+export default class Ripple extends React.Component<null, State> {
   state = {
     isAlive: true,
     className: 'ripple'
