@@ -17,7 +17,8 @@ export default class Ripple extends React.Component<{}, State> {
   pos = this.getPos();
 
   render() {
-    return this.state.isAlive ? <span className={this.state.className} style={this.pos} /> : null;
+    const { isAlive, className } = this.state;
+    return isAlive ? <span className={className} style={this.pos} /> : null;
   }
 
   componentDidMount() {
@@ -28,11 +29,13 @@ export default class Ripple extends React.Component<{}, State> {
   }
 
   getPos(): React.CSSProperties {
+    const { getRandomInt } = Utils;
+
     const coloursKeys = Object.keys(Colours);
     return {
-      top: Utils.getRandomInt(-10, 90) + '%',
-      left: Utils.getRandomInt(-10, 40) + '%',
-      backgroundColor: Colours[coloursKeys[Utils.getRandomInt(0, coloursKeys.length)]]
+      top: getRandomInt(-10, 90) + '%',
+      left: getRandomInt(-10, 40) + '%',
+      backgroundColor: Colours[coloursKeys[getRandomInt(0, coloursKeys.length)]]
     };
   }
 }

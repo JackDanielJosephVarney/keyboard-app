@@ -28,42 +28,46 @@ export default class Key extends React.Component<Props, State> {
     ripples: []
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
-    if (this.props.extraCodes) {
-      for (let keyCode of this.props.extraCodes) {
+    const { extraCodes, keyCode, attack, decay } = this.props;
+
+    if (extraCodes) {
+      for (let keyCode of extraCodes) {
         document.addEventListener('keydown', this.onKeyDown(keyCode));
       }
     }
 
-    document.addEventListener('keydown', this.onKeyDown(this.props.keyCode));
+    document.addEventListener('keydown', this.onKeyDown(keyCode));
 
-    this.attack = this.props.attack;
-    this.decay = this.props.decay + this.props.attack;
+    this.attack = attack;
+    this.decay = decay + attack;
   }
 
   componentWillReceiveProps(props: Props) {
-    this.attack = props.attack;
-    this.decay = props.decay + props.attack;
+    const { attack, decay } = props;
+
+    this.attack = attack;
+    this.decay = decay + attack;
   }
 
   render() {
+    const { ariaLabel, children } = this.props;
+
     return (
-      <button className="key" onMouseDown={this.onEvent} aria-label={this.props.ariaLabel}>
+      <button className="key" onMouseDown={this.onEvent} aria-label={ariaLabel}>
         {this.state.ripples.map(id => <Ripple key={id} />)}
-        {this.props.children}
+        {children}
       </button>
     );
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.onKeyDown(this.props.keyCode));
+    const { keyCode, extraCodes } = this.props;
 
-    if (this.props.extraCodes) {
-      for (let keyCode of this.props.extraCodes) {
+    document.removeEventListener('keydown', this.onKeyDown(keyCode));
+
+    if (extraCodes) {
+      for (let keyCode of extraCodes) {
         document.removeEventListener('keydown', this.onKeyDown(keyCode));
       }
     }
@@ -82,16 +86,16 @@ export default class Key extends React.Component<Props, State> {
   };
 
   emitSound() {
-    const now: number = this.props.audioContext.currentTime;
-    let { gainNode, oscNode } = MusicUtils.getNodes(this.props.audioContext);
+    const { audioContext, freq, waveType } = this.props;
 
-    oscNode.type = this.props.waveType;
-    oscNode.frequency.setValueAtTime(this.props.freq, now);
+    const now: number = audioContext.currentTime;
+    let { gainNode, oscNode } = MusicUtils.getNodes(audioContext);
+
+    oscNode.type = waveType;
+    oscNode.frequency.setValueAtTime(freq, now);
 
     gainNode.gain.setValueAtTime(0, now);
-    //attack
     gainNode.gain.linearRampToValueAtTime(0.05, now + this.attack);
-    //decay
     gainNode.gain.linearRampToValueAtTime(0.008, now + this.decay);
     gainNode.gain.linearRampToValueAtTime(0.001, now + this.decay * 1.5);
     gainNode.gain.linearRampToValueAtTime(0, now + this.decay * 2);
