@@ -58,11 +58,6 @@ export interface State {}
 
 export default class Keyboard extends React.Component<Props, State> {
   state = {};
-  audioContext: AudioContext;
-
-  componentWillMount() {
-    this.audioContext = MusicUtils.getAudioContext();
-  }
 
   render() {
     return <div className="keys-container">{this.generateKeyboard()}</div>;
@@ -81,10 +76,11 @@ export default class Keyboard extends React.Component<Props, State> {
               this.getNote(i).length > 1
                 ? 'key-wrapper sharp-key-wrapper'
                 : 'key-wrapper not-so-sharp-key-wrapper'
-            }>
+            }
+          >
             <Key
               freq={MusicUtils.getSemitone(context.rootNote, i)}
-              audioContext={this.audioContext}
+              audioContext={context.audioContext}
               keyCode={keyCode}
               waveType={context.waveType}
               ariaLabel={this.getNote(i)}

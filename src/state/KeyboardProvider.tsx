@@ -7,6 +7,7 @@ export interface State {
   rootNote: number;
   attack: number;
   release: number;
+  audioContext: AudioContext;
 }
 
 export interface KeyboardState {
@@ -19,11 +20,10 @@ export interface KeyboardState {
   setAttack: Function;
   release: number;
   setRelease: Function;
+  audioContext: AudioContext;
 }
 
-export const KeyboardContext = React.createContext({}) as React.Context<
-  KeyboardState
->;
+export const KeyboardContext = React.createContext({}) as React.Context<KeyboardState>;
 const c4 = 261.63;
 
 export default class KeyboardProvider extends React.Component<{}, State> {
@@ -31,7 +31,8 @@ export default class KeyboardProvider extends React.Component<{}, State> {
     waveType: WaveType.sine,
     rootNote: c4,
     attack: 0.001,
-    release: 0.5
+    release: 0.5,
+    audioContext: MusicUtils.getAudioContext()
   };
 
   componentWillMount() {
@@ -67,8 +68,10 @@ export default class KeyboardProvider extends React.Component<{}, State> {
           attack: this.state.attack,
           setAttack: (attack: number) => this.setState({ attack }),
           release: this.state.release,
-          setRelease: (release: number) => this.setState({ release })
-        }}>
+          setRelease: (release: number) => this.setState({ release }),
+          audioContext: this.state.audioContext
+        }}
+      >
         {this.props.children}
       </KeyboardContext.Provider>
     );
