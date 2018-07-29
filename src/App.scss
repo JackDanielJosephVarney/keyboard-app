@@ -1,45 +1,59 @@
 .app {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-}
 
-.title {
-  font-family: 'Libre Barcode 39 Extended', cursive;
-  font-size: 5em;
-  color: white;
+  .title {
+    text-align: center;
+    font-family: 'Libre Barcode 39 Extended', cursive;
+    font-size: 5em;
+    color: white;
 
-  margin: 40px 0;
+    margin: 65px 0 15px 0;
 
-  @media screen and (max-width: 1280px) {
-    margin-top: 15%;
-    font-size: 3em;
+    @media screen and (max-width: 1280px) {
+      margin-top: 15%;
+      font-size: 3em;
+    }
+
+    @media screen and (max-height: 600px) {
+      display: none;
+    }
   }
 
-  @media screen and (max-height: 600px) {
+  .keyboard-wrapper {
+    width: 70%;
+
+    @media screen and (max-width: 1280px) {
+      width: 100%;
+      margin: auto 0 0 0;
+    }
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  .mobile-message {
     display: none;
+
+    @media screen and (max-width: 600px) {
+      display: inherit;
+    }
   }
 }
 
-.keyboard-wrapper {
-  width: 70%;
-
-  @media screen and (max-width: 1280px) {
-    width: 100%;
-    margin: auto 0 0 0;
-  }
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
-}
-
-.mobile-message {
-  display: none;
-
-  @media screen and (max-width: 600px) {
-    display: inherit;
-  }
+.flashing-warning {
+  color: rgba(183, 28, 28, 1);
+  font-size: 20px;
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  left: 5px;
 }

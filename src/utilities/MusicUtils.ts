@@ -3,16 +3,28 @@ const twelthRoot = Math.pow(2, 1 / 12);
 const getQuarter = bpm => 60 / bpm;
 const addSemitone = freq => freq * twelthRoot;
 const minusSemitone = freq => freq / twelthRoot;
+let analyserNode;
 
 export const MusicUtils = Object.freeze({
-  getAudioContext: () => <AudioContext>new ((<any>window).AudioContext || (<any>window).webkitAudioContext)(),
+  getAudioContext: () =>
+    <AudioContext>(
+      new ((<any>window).AudioContext || (<any>window).webkitAudioContext)()
+    ),
+
+  getAnalyserNode: () => analyserNode,
+
+  setChain: (ctx: AudioContext) => {
+    analyserNode = ctx.createAnalyser();
+    analyserNode.fftSize = 512;
+  },
 
   getNodes: (ctx: AudioContext) => {
     const oscNode = ctx.createOscillator();
     const gainNode = ctx.createGain();
 
     oscNode.connect(gainNode);
-    gainNode.connect(ctx.destination);
+    gainNode.connect(analyserNode);
+    analyserNode.connect(ctx.destination);
 
     return { gainNode, oscNode };
   },

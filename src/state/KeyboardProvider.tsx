@@ -23,19 +23,24 @@ export interface KeyboardState {
   audioContext: AudioContext;
 }
 
-export const KeyboardContext = React.createContext({}) as React.Context<KeyboardState>;
+export const KeyboardContext = React.createContext({}) as React.Context<
+  KeyboardState
+>;
+
 const c4 = 261.63;
 
 export default class KeyboardProvider extends React.Component<{}, State> {
   state = {
-    waveType: WaveType.sine,
+    waveType: WaveType.square,
     rootNote: c4,
-    attack: 0.001,
+    attack: 0.2,
     release: 0.5,
     audioContext: MusicUtils.getAudioContext()
   };
 
   componentWillMount() {
+    MusicUtils.setChain(this.state.audioContext);
+
     window.addEventListener('keydown', (e: KeyboardEvent) => {
       // increase by 12 on caps lock
       if (e.keyCode === 20) {
@@ -44,7 +49,7 @@ export default class KeyboardProvider extends React.Component<{}, State> {
         });
       }
 
-      // decrease by 16 on shift
+      // decrease by 12 on shift
       if (e.keyCode === 16) {
         this.setState({
           rootNote: MusicUtils.getSemitone(this.state.rootNote, -12)
