@@ -1,13 +1,20 @@
 * {
   font-family: 'Share Tech Mono', monospace;
+  margin: 0;
 }
 
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   max-width: 100%;
   overflow: hidden;
+
+  @media screen and (max-width: 1280px) {
+    background-color: rgba(30, 136, 229, 1);
+    overflow: scroll;
+  }
 }
 
 #root {

@@ -7,12 +7,14 @@ import GitHubButton from './components/GitHubButton';
 import Visualiser from './containers/Visualiser';
 
 class App extends React.Component {
+  state = {
+    isDesktop: window.innerWidth > 1280
+  };
+
   public render() {
     return (
       <>
-        <Visualiser />
         <div className="app">
-          <GitHubButton />
           <h1 className="title">Jacks awesome keyboard</h1>
           <h1 className="mobile-message">Rotate me!</h1>
           <KeyboardProvider>
@@ -21,9 +23,25 @@ class App extends React.Component {
             </div>
           </KeyboardProvider>
         </div>
-        <span className="flashing-warning">* Flashing Lights *</span>
+        {this.state.isDesktop ? (
+          <>
+            <div className="visualiser-wrapper">
+              <Visualiser />
+            </div>
+            <GitHubButton />
+            <span className="flashing-warning">* Flashing Lights *</span>
+          </>
+        ) : null}
       </>
     );
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      this.setState({
+        isDesktop: window.innerWidth > 1280
+      });
+    });
   }
 }
 

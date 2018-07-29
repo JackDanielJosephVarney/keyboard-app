@@ -4,6 +4,8 @@
   top: 0px;
 
   height: 100%;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,20 +24,7 @@
       font-size: 3em;
     }
 
-    @media screen and (max-height: 600px) {
-      display: none;
-    }
-  }
-
-  .keyboard-wrapper {
-    width: 70%;
-
-    @media screen and (max-width: 1280px) {
-      width: 100%;
-      margin: auto 0 0 0;
-    }
-
-    @media screen and (max-width: 600px) {
+    @media screen and (max-height: 600px), screen and (max-width: 600px) {
       display: none;
     }
   }
@@ -43,10 +32,34 @@
   .mobile-message {
     display: none;
 
-    @media screen and (max-width: 600px) {
-      display: inherit;
+    @media screen and (max-width: 480px) {
+      display: block;
+      text-align: center;
+      margin: 60px 0;
     }
   }
+
+  .keyboard-wrapper {
+    height: 100%;
+    width: 70%;
+
+    @media screen and (max-width: 1280px) {
+      width: 100%;
+      margin: auto 0 0 0;
+    }
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+  }
+}
+
+.visualiser-wrapper {
+  position: absolute;
+  z-index: 0;
+  top: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 .flashing-warning {

@@ -12,16 +12,8 @@ export interface State {
 
 export default class Keyboard extends React.Component<Props, State> {
   state = {
-    isMobile: false
+    isMobile: window.innerWidth < 960
   };
-
-  setIsMobile = () => this.setState({ isMobile: window.innerWidth < 1280 });
-
-  componentDidMount() {
-    this.setIsMobile();
-
-    window.addEventListener('resize', this.setIsMobile);
-  }
 
   render() {
     return (
@@ -31,6 +23,12 @@ export default class Keyboard extends React.Component<Props, State> {
           <Keys />
         </div>
       </div>
+    );
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () =>
+      this.setState({ isMobile: window.innerWidth < 960 })
     );
   }
 }
