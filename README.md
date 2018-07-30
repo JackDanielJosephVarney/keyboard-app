@@ -1,6 +1,6 @@
 ## About
 
-**The apps background flashes**
+** *The apps background flashes* **
 
 Keyboard app I made using React and the web audio api.
 
