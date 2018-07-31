@@ -31,11 +31,11 @@ const c4 = 261.63;
 
 export default class KeyboardProvider extends React.Component<{}, State> {
   state = {
-    waveType: WaveType.square,
+    waveType: WaveType.sine,
     rootNote: c4,
     attack: 0.2,
     release: 0.5,
-    audioContext: MusicUtils.getAudioContext()
+    audioContext: MusicUtils.getAudioContext(),
   };
 
   componentWillMount() {
@@ -45,14 +45,14 @@ export default class KeyboardProvider extends React.Component<{}, State> {
       // increase by 12 on caps lock
       if (e.keyCode === 20) {
         this.setState({
-          rootNote: MusicUtils.getSemitone(this.state.rootNote, 12)
+          rootNote: MusicUtils.getSemitone(this.state.rootNote, 12),
         });
       }
 
       // decrease by 12 on shift
       if (e.keyCode === 16) {
         this.setState({
-          rootNote: MusicUtils.getSemitone(this.state.rootNote, -12)
+          rootNote: MusicUtils.getSemitone(this.state.rootNote, -12),
         });
       }
     });
@@ -67,14 +67,14 @@ export default class KeyboardProvider extends React.Component<{}, State> {
           rootNote: this.state.rootNote,
           setRootNote: (change: number) =>
             this.setState({
-              rootNote: MusicUtils.getSemitone(this.state.rootNote, change)
+              rootNote: MusicUtils.getSemitone(this.state.rootNote, change),
             }),
           resetRootNote: () => this.setState({ rootNote: c4 }),
           attack: this.state.attack,
           setAttack: (attack: number) => this.setState({ attack }),
           release: this.state.release,
           setRelease: (release: number) => this.setState({ release }),
-          audioContext: this.state.audioContext
+          audioContext: this.state.audioContext,
         }}
       >
         {this.props.children}

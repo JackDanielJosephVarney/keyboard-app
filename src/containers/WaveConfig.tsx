@@ -13,7 +13,6 @@ export default _ => (
       <div className="flex-row">
         <label className="flex-row wave-input" htmlFor={WaveType.square}>
           <input
-            defaultChecked
             type="radio"
             name="setWave"
             id={WaveType.square}
@@ -41,6 +40,7 @@ export default _ => (
         </label>
         <label className="flex-row wave-input" htmlFor={WaveType.sine}>
           <input
+            defaultChecked
             type="radio"
             name="setWave"
             id={WaveType.sine}
