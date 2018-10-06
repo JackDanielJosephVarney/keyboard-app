@@ -23,7 +23,7 @@ class App extends React.Component {
             </div>
           </KeyboardProvider>
         </div>
-        {this.state.isDesktop ? (
+        {this.state.isDesktop && (
           <>
             <div className="visualiser-wrapper">
               <Visualiser />
@@ -31,7 +31,7 @@ class App extends React.Component {
             <GitHubButton />
             <span className="flashing-warning">* Flashing Lights *</span>
           </>
-        ) : null}
+        )}
       </>
     );
   }
